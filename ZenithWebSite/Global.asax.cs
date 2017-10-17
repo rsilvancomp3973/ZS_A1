@@ -17,9 +17,9 @@ namespace ZenithWebSite
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-            var configuration = new ZenithWebSite.Migrations.ZenithMigrations.Configuration();
-            var migrator = new DbMigrator(configuration);
-            migrator.Update();
+            //var configuration = new ZenithWebSite.Migrations.ZenithMigrations.Configuration();
+            //var migrator = new DbMigrator(configuration);
+            //migrator.Update();
         }
     }
 }
