@@ -13,7 +13,7 @@ namespace ZenithWebSite.Migrations.ZenithMigrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
             MigrationsDirectory = @"Migrations\ZenithMigrations";
         }
 
@@ -75,12 +75,17 @@ namespace ZenithWebSite.Migrations.ZenithMigrations
                 manager.AddToRole(user.Id, "Member");
             }
 
+            if (!context.Activities.Any())
+            {
+                context.Activities.AddOrUpdate(getActivities().ToArray());
+                context.SaveChanges();
+            }
 
-            context.Activities.AddOrUpdate(getActivities().ToArray());
-            context.SaveChanges();
-
-            context.Events.AddOrUpdate(e => e.EventId, getEvents(context).ToArray());
-            context.SaveChanges();
+            if (!context.Events.Any())
+            {
+                context.Events.AddOrUpdate(e => e.EventId, getEvents(context).ToArray());
+                context.SaveChanges();
+            }
         }
 
         private List<ActivityType> getActivities()
