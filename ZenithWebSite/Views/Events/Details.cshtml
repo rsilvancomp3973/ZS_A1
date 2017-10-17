@@ -1,0 +1,68 @@
+﻿@model ZenithDataLib.Models.Event
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Event Details</h2>
+
+<div>
+    <h4>@Html.DisplayFor(model => model.ActivityType.ActivityDescription)</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ActivityType.ActivityDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ActivityType.ActivityDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EventFrom)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EventFrom)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EventTo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EventTo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EnteredBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EnteredBy.UserName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreationDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreationDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.isActive)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.isActive)
+        </dd>
+
+    </dl>
+</div>
+<p style="margin-left: 100px">
+@if (User.IsInRole("Admin"))
+{
+    @Html.ActionLink("Edit", "Edit", new { id = Model.EventId }) <span> | </span> }
+    @Html.ActionLink("Back to List", "Index")
+</p>
