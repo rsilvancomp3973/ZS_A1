@@ -13,7 +13,7 @@ namespace ZenithWebSite.Migrations.ZenithMigrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
             MigrationsDirectory = @"Migrations\ZenithMigrations";
         }
 
